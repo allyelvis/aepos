@@ -1,0 +1,20 @@
+name: Run Fix Script
+
+on:
+  push:
+    branches:
+      - main  # or specify the branch you want to trigger this action
+
+jobs:
+  run-fix:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set execute permissions for fix.sh
+      run: chmod +x fix.sh
+
+    - name: Run fix.sh
+      run: ./fix.sh
